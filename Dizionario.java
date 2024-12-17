@@ -49,24 +49,45 @@ public class Dizionario {
 
         while(st.hasMoreTokens()){
             parola = st.nextToken();
-            testo = testo.substring(parola.length());
-            System.out.println(testo);
-
-            if(testo.contains(parola)){
-
-            }
             arrayParole[i] = new Parola(parola);
-            if(testo.contains(parola)){
-
-            }
-
             i++;
         }
+
+        for(i=0; i<arrayParole.length; i++){
+            if(numOccorrenze(arrayParole[i].getParola())>1){
+                for(k=i+1; k < arrayParole.length; k++){
+                    if(arrayParole[i].getParola().equals(arrayParole[k])){
+                        //scalare tutte le parole
+                    }
+                }
+            }
+        }
+
     }
 
-    /*public int numOccorrenze(String parola){
+    /**
+     * Conta il numero di occorrenze di una parola
+     * @param parola Parola da cercare
+     * @return Numero di occorrenze
+     */
+    public int numOccorrenze(String parola){
+        int numOcc=0;
+        for (int i=0; i< arrayParole.length; i++) {
+            if (arrayParole[i].getParola().equals(parola)) {
+                numOcc++;
+            }
+        }
+        return numOcc;
+    }
 
-    }*/
+    /**
+     * Stampa l'array di parole
+     */
+    public void stampaArray(){
+        for(int i=0; i< arrayParole.length; i++){
+            System.out.println(arrayParole[i].getParola());
+        }
+    }
     public static void main(String [] args){
         Dizionario diz = new Dizionario("Ciao a tutti quanti belli e brutti");
 
